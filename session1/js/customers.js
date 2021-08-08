@@ -121,21 +121,32 @@ userPost =[
     }
     ]
 mainWrap = document.querySelector('#userDataWrap')
-let createNewElement = (elementTag, elementTxt, elementClasses,parent) =>{
+let createNewElement = (elementTag, elementTxt, elementClasses,parent, attributes) =>{
     myNewEl = document.createElement(elementTag)
     if(elementTxt!='') myNewEl.innerText = elementTxt
     if(elementClasses!="") myNewEl.className =elementClasses
     parent.appendChild(myNewEl)  
-    return myNewEl  
-}
 
-rowDiv = createNewElement("div", "", "row", mainWrap)
+    attributes.forEach(attr=>{
+            myNewEl.setAttribute(attr.attrName, attr.attrVal)
+        })
+
+        return myNewEl  
+}
+// attributes = [ {attrName:"id", attrval:"x"}, {attrName:"src", attrVal:'bbbb'}]
+rowDiv = createNewElement("div", "", "row", mainWrap,[{attrName:"id", attrVal:"x"}, {attrName:"name", attrVal:"d"}])
 userPost.forEach(post => {
-    col4Div = createNewElement("div", "", "col-4", rowDiv)
-    single = createNewElement("div", "","m-3 border border-3 border-primary", col4Div)
-    createNewElement('h1', post.userId, "", single)
-    createNewElement('h3', post.title, "", single)
-    createNewElement('p', post.content, "", single)
+    col4Div = createNewElement("div", "", "col-4", rowDiv,[])
+    single = createNewElement("div", "","m-3 border border-3 border-primary", col4Div,[])
+    createNewElement('h1', post.userId, "", single,[])
+    createNewElement('h3', post.title, "", single,[])
+    createNewElement('p', post.content, "", single,[])
+    createNewElement('a', 'google', "btn btn-success", rowDiv, 
+    [
+        {attrName: "href", attrVal:"https://www.google.com"},
+        {attrName:"id", attrVal: "y"}
+    ]
+    )
 });
 
 
