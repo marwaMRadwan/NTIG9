@@ -127,7 +127,7 @@ searchUser = (searchKey, attribute, searchType)=>{
 }
 getUserData = (name) =>{
     try{
-        let data = searchUser(name, 'name', 2 )
+        let data = searchUser(name, 'name', 1 )
         if(data) showSingle(data)
         else console.log('no data found')
     }
