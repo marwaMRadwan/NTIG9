@@ -81,13 +81,14 @@ const heads = [
     {propertyName: 'yearOfBirth', msg:'year of birth'},
     {propertyName: 'salary', msg:'salary'},
 ]
+showSingle = (user)=>{
+    console.log(`name: ${user.name} - salary: ${user.salary} - year of birth: ${user.yearOfBirth}`)
+}
 showAllUsers = () =>{
     
     if(users.length==0) return console.log('no data to show')
 
-    users.forEach( user => {
-        console.log(`name: ${user.name} - salary: ${user.salary} - year of birth: ${user.yearOfBirth}`)
-    })
+    users.forEach( user => showSingle(user))
 
 }
 
@@ -100,15 +101,20 @@ addNewUser = ()=>{
     let user = {}
     heads.forEach(h=>{
         user[h.propertyName] = prompt(`please enter user ${h.msg}`)
-    })
+    //user[h.pro] ====> user.name  user.h.propertName  user = { h : { propertyName:'s'}}
+    
+    }) 
     users.push(user)
     // console.log(user)
 }
 
-getUserData = (id) =>{
-
+searchUser = (name)=>{
+    return users.findIndex( user => user.name==name )
 }
-
+getUserData = (name) =>{
+    let data = searchUser(name)
+   showSingle(users[data])
+}
 
 getUserAge = (id) =>{
 
@@ -116,6 +122,7 @@ getUserAge = (id) =>{
 addNewUser()
 showAllUsers()
 
+getUserData('marwa')
 
 
 
