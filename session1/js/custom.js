@@ -108,22 +108,42 @@ addNewUser = ()=>{
     // console.log(user)
 }
 
-searchUser = (name)=>{
-    return users.findIndex( user => user.name==name )
+searchUser = (searchKey, attribute, searchType)=>{
+    //searchType( single index, single data, array of data )
+    switch(searchType){
+        case 1:{
+            return users.findIndex( user => user[attribute]==searchKey )
+        }
+        case 2:{
+            return users.find( user => user[attribute]==searchKey )
+        }
+        case 3:{
+            return users.filter( user => user[attribute]==searchKey )
+        }
+        default:{
+            throw new Error("no search type with this key")
+        }
+    }
 }
 getUserData = (name) =>{
-    let data = searchUser(name)
-   showSingle(users[data])
+    try{
+        let data = searchUser(name, 'name', 2 )
+        if(data) showSingle(data)
+        else console.log('no data found')
+    }
+    catch(e){
+        console.log(e)
+    }
 }
 
 getUserAge = (id) =>{
 
 }
 addNewUser()
-showAllUsers()
+// showAllUsers()
 
 getUserData('marwa')
-
+console.log('test')
 
 
 
