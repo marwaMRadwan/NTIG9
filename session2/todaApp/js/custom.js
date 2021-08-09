@@ -24,8 +24,45 @@ addTask = function(e){
     setTasks(tasks)
     this.reset()
     showHideEvent(showHidebtn)
+    showTasks()
 }
-
+let createNewElement = (elementTag, elementTxt, elementClasses,parent, attributes) =>{
+    myNewEl = document.createElement(elementTag)
+    if(elementTxt!='') myNewEl.innerText = elementTxt
+    if(elementClasses!="") myNewEl.className =elementClasses
+    parent.appendChild(myNewEl)  
+    attributes.forEach(attr=>{
+            myNewEl.setAttribute(attr.attrName, attr.attrVal)
+        })
+        return myNewEl  
+}
+deleteTask =function(task){
+    tasks=getTasks()
+    i = tasks.findIndex(t=> t.id == task.id)
+        tasks.splice(i,1)
+        setTasks(tasks)
+        showTasks()
+}
+function showTasks (){
+    const tasksWrap = document.querySelector('#content-wrapper .row ')
+    tasksWrap.innerText=""
+    if(tasks.length==0){
+        createNewElement('div', 'No Tasks To Show', 'alert alert-danger', tasksWrap, [])
+    }
+    else{
+        tasks.forEach((task, i)=>{
+            col4Div = createNewElement('div', '', 'col-4 x', tasksWrap, [])
+            contentDiv = createNewElement('div', '', 'm-3 border border-primary border-3 p-2 bg-danger text-white', col4Div, [])
+            createNewElement('h3', task.taskTitle, '',contentDiv, [])
+            createNewElement('p', task.taskContent, '',contentDiv, [])
+            btndel = createNewElement('button', 'delete', 'btn btn-warning', contentDiv, []) 
+            btnEdit = createNewElement('button', 'edit', 'btn btn-success', contentDiv, []) 
+            btndel.addEventListener('click',function(e) {deleteTask(task)})
+        })
+    
+    }
+}
 showHidebtn.addEventListener('click', showHideEvent )
 formData.addEventListener('submit', addTask)
 
+showTasks()
