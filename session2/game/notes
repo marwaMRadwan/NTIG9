@@ -1,0 +1,14 @@
+trials => 8
+score err ==> 0
+
+word   =   remaining chars
+
+mohammed 
+
+m => 3  0   [o,h,a,e,d] 
+i => 3  1   [o,h,a,e,d]
+d => 4 1 [o,h,a,e]
+
+
+win length(word) = score
+lose 8
