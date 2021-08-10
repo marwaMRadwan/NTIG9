@@ -18,5 +18,22 @@ yargs.command({
     handler:function(argv){ functions.addData(argv)}
 })
 
+yargs.command({
+    command:"showAll",
+    describe:"add new task",
+    handler:function(){ functions.showAll()}
+})
+//node index serch --id=1   // --content=w   // --title="bdvvdv bhvsgh"
+yargs.command({
+    command:"searchTask",
+    describe:"search task",
+    builder:{
+        id:{type:"number"},
+        title:{ type:"string"},
+        content:{type:"string"}
+    },
+    handler:function(argv){ functions.searchData(argv)}
+})
+
 
 yargs.argv

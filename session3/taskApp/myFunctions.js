@@ -27,7 +27,19 @@ class Task {
         this.myData.push(task)
         this.writeData()    
     }
-    
+    showAll(){
+        this.readData()
+        this.myData.forEach(task=>{
+            console.log(`${task.id} - ${task.title} - ${task.content} - ${task.status}`)
+        })
+    }
+    searchData(argv){
+        let searchKey = null
+        for(let x in argv)  if(x!="_" && x!="$0") searchKey = x
+        this.readData()
+        let result = this.myData.filter(task=> task[searchKey] == argv[searchKey] )
+        console.log(`${result.id} - ${result.title} - ${result.content} - ${result.status}`)
+    }
 }
 
 let mytask = new Task()
