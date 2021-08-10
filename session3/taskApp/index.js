@@ -35,5 +35,24 @@ yargs.command({
     handler:function(argv){ functions.searchData(argv)}
 })
 
+yargs.command({
+    command:"delete",
+    describe:"add new task",
+    builder:{
+        id:{type:"number"}
+    },
+    handler:function(argv){ functions.delete(argv)}
+})
+
+yargs.command({
+    command:"editTask",
+    describe:"edit new task",
+    builder:{
+        id:{demandOption:true, type:"number"},
+        newtitle:{ demandOption:true, type:"string"},
+        newcontent:{demandOption:true, type:"string"}
+    },
+    handler:function(argv){ functions.edit(argv)}
+})
 
 yargs.argv
