@@ -12,10 +12,8 @@ yargs.command({
     command:"addTask",
     describe:"add new task",
     builder:{
-        id:{},
-        title:{},
-        content:{},
-        status:{}
+        title:{ demandOption:true, type:"string"},
+        content:{demandOption:true, type:"string"}
     },
     handler:function(argv){ functions.addData(argv)}
 })
