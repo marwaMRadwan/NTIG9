@@ -25,15 +25,20 @@ const generateID =(allStudents) =>{
     catch(e){}
     return id;
 }
-checkClass = (studentData) =>{
+const checkClass = (studentData) =>{
     return classesList.findIndex(c=> c == studentData.class.toUpperCase()) == -1
 }
 
-checkUniqueData = (studentData, allStudents) =>{
+const checkUniqueData = (studentData, allStudents) =>{
     return allStudents.findIndex(s => 
         s.name == studentData.name.toLowerCase()  && s.class ==studentData.class.toUpperCase()
     ) != -1
 }
+
+const searchById = (allStudents, id)=>{
+   return allStudents.findIndex( s => s.id == id)
+}
+
 const addStudent = (studentData) =>{
     let allStudents = readStudentFromJSON()
     let errors = []
@@ -58,5 +63,28 @@ const addStudent = (studentData) =>{
     writeStudentsInJSON(allStudents)
     console.log(chalk.green('data added successfuly'))
 }
+const showSingleStudent = (id) =>{
+    const allStudents = readStudentFromJSON()
+    const index = searchById(allStudents, id)
+    if(index==-1) return console.log(chalk.red('no data'))
+    if(!allStudents[index].status) return console.log(chalk.red('student deactivated'))
+    console.log(chalk.green(`name: ${allStudents[index].name}`))
+}
 
-addStudent({"name":"a", "class":"r", grade:150})
+const activateStudent = (id) =>{
+
+}
+const deActivateStudent = (id) =>{
+    
+}
+const editSingleStudent = (id) =>{
+
+}
+const deleteStudent = (id) =>{
+
+}
+const showAllStudents = () =>{
+
+}
+// addStudent({"name":"a", "class":"r", grade:150})
+showSingleStudent(1)
