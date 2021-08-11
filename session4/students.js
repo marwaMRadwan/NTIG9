@@ -95,3 +95,22 @@ const showAllStudents = () =>{
 }
 // addStudent({"name":"a", "class":"r", grade:150})
 showAllStudents()
+
+const gradeEdit = (id, newDegree , editType) =>{ //editType 1=> add 2=> sub
+    allStudents = readStudentFromJSON()
+    index = searchById(allStudents, id)
+    if(index==-1 || !allStudents[index].status) return console.log('invalid user');
+    if(editType==1){
+        if(newDegree>20 || newDegree<=0) return console.log('must be between 0 and 20')
+        newDegree+=allStudents[index].degree
+        if(newDegree>100) return console.log('cann\'t be more than 100')
+        allStudents[index].degree = newDegree
+    }
+    else if(editType==2){
+        if(newDegree>10 || newDegree<=0) return console.log('must be between 0 and 10')
+        newDegree -= allStudents[index].degree
+        if(newDegree<0) return console.log('cann\'t be less than 0');
+    }
+    writeStudentsInJSON(allStudents)
+}
+
