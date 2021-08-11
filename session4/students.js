@@ -108,8 +108,9 @@ const gradeEdit = (id, newDegree , editType) =>{ //editType 1=> add 2=> sub
     }
     else if(editType==2){
         if(newDegree>10 || newDegree<=0) return console.log('must be between 0 and 10')
-        newDegree -= allStudents[index].degree
+        newDegree = allStudents[index].degree-newDegree
         if(newDegree<0) return console.log('cann\'t be less than 0');
+        allStudents[index].degree = newDegree
     }
     writeStudentsInJSON(allStudents)
 }
