@@ -25,15 +25,38 @@ const generateID =(allStudents) =>{
     catch(e){}
     return id;
 }
-const addStudent = (studentData) =>{
-    let allStudents = readStudentFromJSON()
-    if( classesList.findIndex(c=> c == studentData.class.toUpperCase()) == -1 ) return console.log(chalk.red('invalid class name'))
-    const student = {
-        id : generateID(allStudents),
-        name: studentData.name,
-        class: studentData.class.toUpperCase()
-    }
-    console.log(student)
+checkClass = (studentData) =>{
+    return classesList.findIndex(c=> c == studentData.class.toUpperCase()) == -1
 }
 
-addStudent({class:"b"})
+checkUniqueData = (studentData, allStudents) =>{
+    return allStudents.findIndex(s => 
+        s.name == studentData.name.toLowerCase()  && s.class ==studentData.class.toUpperCase()
+    ) != -1
+}
+const addStudent = (studentData) =>{
+    let allStudents = readStudentFromJSON()
+    let errors = []
+    if( checkClass(studentData) )  errors.push('invalid class name')
+    if( checkUniqueData(studentData, allStudents)) errors.push('invalid data')
+    if(studentData.grade<0 || studentData.grade>100) errors.push('invalid grade')
+    if(errors.length>0){
+        errors.forEach(
+            err=> console.log(chalk.red(err))
+        )
+        return;
+    }
+    const student = {
+        id : generateID(allStudents),
+        name: studentData.name.toLowerCase(),
+        class: studentData.class.toUpperCase(),
+        status: false,
+        grade: studentData.grade
+    }
+    console.log(student)
+    allStudents.push(student)
+    writeStudentsInJSON(allStudents)
+    console.log(chalk.green('data added successfuly'))
+}
+
+addStudent({"name":"a", "class":"r", grade:150})
