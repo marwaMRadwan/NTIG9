@@ -71,20 +71,27 @@ const showSingleStudent = (id) =>{
     console.log(chalk.green(`name: ${allStudents[index].name}`))
 }
 
-const activateStudent = (id) =>{
-
+const changeStatus = (id, changeStatus)=>{ //1 activate 2 deactivate
+    let allStudents = readStudentFromJSON()
+    const index = searchById(allStudents, id)
+    if(index ==-1) return console.log('no users found')
+    if(changeStatus==1 && allStudents[index].status) return console.log('already active')
+    if(changeStatus==2 && !allStudents[index].status) return console.log('already deactivate')
+    allStudents[index].status= !allStudents[index].status
+    writeStudentsInJSON(allStudents)
+    console.log('done')
 }
-const deActivateStudent = (id) =>{
-    
-}
-const editSingleStudent = (id) =>{
+const editSingleStudent = (id, newData) =>{
 
 }
 const deleteStudent = (id) =>{
 
 }
 const showAllStudents = () =>{
-
+    allStudents=readStudentFromJSON()
+    allStudents.forEach(s =>{
+        if(s.status) console.log(`name: ${s.name}`)
+    })
 }
 // addStudent({"name":"a", "class":"r", grade:150})
-showSingleStudent(1)
+showAllStudents()
