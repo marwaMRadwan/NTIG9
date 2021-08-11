@@ -1,0 +1,22 @@
+student => id, name, status, class, grade, bounce, discount
+addstudent =>   - dont't accept two student with the same name in the same class
+                - all student names with lowercase only
+                - grade must be more than 0 and less than 100
+                - class name must be [A, B, C, D] and uppercase
+                - status => false in add new one
+
+activate => change status to true
+class change => change student class with name constrain
+
+bounce => must be greater than 0
+          max 20
+          if bounce+grade > 100 invalid bounce
+
+discount => less than 10 and min 0
+        grade-discount <0 invalid
+
+search student by id
+show all students
+show single student
+deactivate student
+showw deactivated students
