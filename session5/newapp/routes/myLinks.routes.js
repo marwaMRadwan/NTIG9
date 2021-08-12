@@ -8,4 +8,9 @@ router.get('', (req,res)=>{
 router.get('/about', (req,res)=>{
     res.send('test 2')
 })
+router.get('/hbs', (req,res)=>{
+    res.render('index', {
+        name:"marwa radwan"
+    })
+})
 module.exports = router
