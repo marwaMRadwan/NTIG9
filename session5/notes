@@ -1,0 +1,15 @@
+views => pages
+layouts => layouts like nav footer
+
+routes => 
+express
+hbs
+public(static) files
+
+
+server.js => main 
+src => app.js
+controllers => logic (functions)
+routes => all routes
+public
+front end
