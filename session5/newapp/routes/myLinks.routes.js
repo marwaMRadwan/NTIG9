@@ -13,4 +13,7 @@ router.get('/hbs', (req,res)=>{
         name:"marwa radwan"
     })
 })
+router.get('*', (req,res)=>{
+    res.render('err404')
+})
 module.exports = router
