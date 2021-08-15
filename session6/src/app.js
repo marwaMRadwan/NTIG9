@@ -8,9 +8,9 @@ const userRoutes = require('../routes/user.routes')
 
 const app = express()
 
-app.set('view engine', hbs)
-app.set("views", path.join(__dirname, "../public/views"))
-hbs.registerPartials(path.join(__dirname, "../public/layouts"))
+app.set('view engine', 'hbs')
+app.set("views", path.join(__dirname, "../design/views"))
+hbs.registerPartials(path.join(__dirname, "../design/layouts"))
 
 
 app.use(express.static(path.join(__dirname, "../public")))
