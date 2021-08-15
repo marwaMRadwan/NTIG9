@@ -1,0 +1,24 @@
+{{>header}}
+{{>nav}}
+<section class="container my-5">
+    <h3 class="text-primary">Add New User</h3>
+
+<form method="post">
+    <div class="mb-3 ">
+        <input name="name" placeholder="name" class="form-control" value="{{user.name}}">
+    </div>
+    <div class="mb-3">
+        <input name="balance" placeholder="balance" class="form-control" value={{user.balance}}>
+    </div>
+    <div class="mb-3">
+        <input name="age" placeholder="age" class="form-control" value="{{user.age}}">
+    </div>
+
+    <div class="mb-3">
+        <input type="submit" value="add User" class="btn btn-primary">
+    </div>
+</form>
+
+</section>
+
+{{>footer}}

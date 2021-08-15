@@ -30,7 +30,11 @@
                 <td>{{this.balance}}</td>
                 <td>
                     <a href="edit/{{this._id}}" class="btn btn-warning mx-3">edit</a>
-                    <a href="delete/{{this._id}}" class="btn btn-danger mx-3">delete</a>
+                    
+                    <form method="post" action="delete/{{this._id}}">
+
+                    <button class="btn btn-danger mx-3">delete</button>
+                    </form>
                 </td>
             </tr>
 

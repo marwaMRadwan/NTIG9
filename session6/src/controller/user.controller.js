@@ -23,7 +23,8 @@ class User{
     }
     editUser(userId, newData){
         readJsonFile()
-        let index = data.findIndex(user=> user._id === userId)
+        let index = data.findIndex(user=> user._id == userId)
+        newData._id = data[index]._id
         data[index] = newData
         saveJsonFile()
     }
@@ -33,8 +34,8 @@ class User{
     }
     searchUser(userId){
         readJsonFile()
-        let index = data.findIndex(user=> user._id === userId)
-        return index
+        let index = data.findIndex(user=> user._id == userId)
+        return data[index]
     }
     deleteUser(userId){
         readJsonFile()
