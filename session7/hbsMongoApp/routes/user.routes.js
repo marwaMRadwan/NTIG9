@@ -50,14 +50,46 @@ router.get('/single/:id', (req,res)=>{
 })
 
 router.post('/delete/:id', (req,res)=>{
+    id=req.params.id
+    dbConnection((error, response)=>{
+        if(error) res.send('database error')
+        response.collection('users').deleteOne({_id:new ObjectId(id)})
+        .then(()=>res.redirect('/showAll'))
+        .catch(()=>res.send('cann\'t delete'))
+    })
+
     res.redirect('/showAll')
 })
 
 router.get('/edit/:id', (req,res)=>{
-    res.render('edit', {title:"edit", user:userdata})
+    id = req.params.id
+    dbConnection((error, response)=>{
+        if(error) res.send('database error')
+        response.collection('users').findOne({_id: new ObjectId(id)}, ((e,  d)=>{
+            if(e) res.send(e)
+            res.render('edit', {
+                title:"all Data",
+                user: d
+             })
+            }))
+        })        
+
 })
 router.post('/edit/:id', (req,res)=>{
-    res.redirect('/showAll')
+    id=req.params.id
+    data = req.body
+    dbConnection((error, response)=>{
+        if(error) res.send('database error')
+        response.collection('users').updateOne(
+            {_id:new ObjectId(id)},
+            // { $set:data} // {name:1, age:80}
+    {$inc:{age:1}}
+    )
+    .then(()=>res.redirect('/showAll'))
+    .catch(()=>res.send('cann\'t delete'))
+
+    })
+
 })
 
 module.exports = router
