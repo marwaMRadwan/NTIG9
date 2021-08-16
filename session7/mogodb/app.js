@@ -70,7 +70,10 @@ mydata = [
 mongoClient.connect(dbHost, {}, (error, client)=>{
     if(error) return console.log(error)
     const myClient = client.db(myDbName)
-    myClient.collection('post').insertMany(mydata)
+    myClient.collection('post').insertMany(mydata, (err, data)=>{
+        if(err) console.log(err)
+        else console.log(data.insertedCount)
+    })
 })
 
 const app = express()
