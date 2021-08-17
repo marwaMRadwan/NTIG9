@@ -91,6 +91,21 @@ const deleteUser = async(req,res)=>{
 const editUser = async(req,res)=>{
     try{
         id = req.params.id
+        allowed = ['name', 'email']
+        requested = Object.keys(req.body)
+        const isValidUpdates = requested.every(r=> allowed.includes(r))
+        if(!isValidUpdates) return res.status(500).send({
+            apiStatus:false,
+            data:null,
+            message:"invalid requested"
+        })
+        const user = await User.findByIdAndUpdate(id, req.body, {new:true, runValidators:true})
+        if(!user) return res.status(404).send({apiStatus:false, data:null, message:"user not found"})
+        res.status(200).send({
+            apiStatus:true,
+            data:user,
+            message:"updated"
+        })
     }
     catch(e){
         res.status(500).send({
