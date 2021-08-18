@@ -1,0 +1,29 @@
+npm init --y
+npm i express validator mongoose dotenv 
+npm i bcryptjs
+
+users
+    name, email, password, phone, gender, addresses => [] , image, status
+
+posts 
+    content, type, image, video, userid
+
+userRoles => 
+
+- register user (encrypt password - send activation email) =>name, email, password, gender
+- add profile image
+- login user
+- logout user
+- activate
+- deactivate
+- edit password logged in
+- edit password without login (to email)
+- remove account
+- add posts
+- edit post
+- add friend
+- show all friends
+- show time line
+- show single post
+- add post comment
+- like/dislike post
