@@ -15,7 +15,15 @@ const storage = multer.diskStorage({
 })
 
 const upload = multer({
-    storage: storage
+    storage: storage,
+    limits:{ fileSize: 150000},
+    fileFilter: function(req, file, callback){
+        // let fType = "a"+req.body.fileType
+        // console.log(fType)
+        ext = path.extname(file.originalname)
+        if(ext!= ".pdf") return callback(new Error('invalid Extension'))
+        callback(null, true)
+    }
 })
 
 module.exports = upload
