@@ -99,4 +99,9 @@ router.get('/allUsers', auth, async(req,res)=>{
         })
     }
 })
+const upload = require('../app/middleware/upload-file')
+router.post('/profile', auth, upload.single('profile'), (req,res)=>{
+    res.send('done')
+} )
+
 module.exports= router
