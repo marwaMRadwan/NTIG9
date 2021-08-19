@@ -100,7 +100,9 @@ router.get('/allUsers', auth, async(req,res)=>{
     }
 })
 const upload = require('../app/middleware/upload-file')
-router.post('/profile', auth, upload.single('profile'), (req,res)=>{
+router.post('/profile', auth, upload.single('profile'),async (req,res)=>{
+    req.user.image = req.file.path
+    await req.user.save()
     res.send('done')
 } )
 
