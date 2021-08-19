@@ -13,6 +13,7 @@ const auth = async(req,res, next)=>{
         const decodedToken = jwt.verify(token, process.env.JWTSECURITY)
         const user = await User.findOne({_id:decodedToken._id, 'tokens.token':token})
         if(!user) throw new Error('please authintcate')
+        // if(!user.status) throw new Error('please activate your acc')
         req.user=user
         req.token = token
         next()        

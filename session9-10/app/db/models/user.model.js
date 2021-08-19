@@ -4,6 +4,7 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
 const userSchema = new mongoose.Schema({
+    qr:{type:String},
     name:{
         type:String,
         trim:true,
@@ -66,9 +67,21 @@ const userSchema = new mongoose.Schema({
     tokens:[
         { token:{type:String}}
     ]
-})
+}
+,{timestamps:true}
+)
 
 //schema methods
+//handle response
+userSchema.methods.toJSON = function(){
+    const user = this.toObject()
+    let deleted = ['password', 'addresses', 'tokens', '__v']
+    deleted.forEach(item=>{
+        delete user[item]
+    })
+    return user
+}
+
 //encrypt password 
 userSchema.pre('save', async function(next){
     const user = this
