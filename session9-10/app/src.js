@@ -26,4 +26,13 @@ app.post('/myTest',auth,upload.single('file'), async(req,res)=>{
         res.send(e)
     }
 })
+app.get('/myPosts', auth, async(req,res)=>{
+    try{
+        let posts = Post.find({userId: req.user._id})
+        res.send(posts)
+    }
+    catch(e){
+        res.send(e)
+    }
+})
 module.exports = app

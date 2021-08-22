@@ -72,6 +72,8 @@ const userSchema = new mongoose.Schema({
 )
 
 //schema methods
+//virtual populate
+
 //handle response
 userSchema.methods.toJSON = function(){
     const user = this.toObject()
