@@ -9,6 +9,13 @@ users
     name, email, password, phone, gender, addresses => [] , image, status
 
 posts 
+PostType : ['txt, 'img','vid'] ==> required
+txt:
+image:
+video
+
+
+add post=> txt => not empty
     content, type, image, video, userid
 
 userRoles => 
@@ -34,9 +41,6 @@ userRoles =>
 
 
 
-123
-11121310am *** remove
-123
 
 
 

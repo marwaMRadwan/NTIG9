@@ -1,0 +1,29 @@
+group :
+ - mahmoud azab ==> ecommerce
+ - safia
+ - mohamed 
+
+
+ - moustafa khedr ==> sov=cial engine learning
+ - walid ==> school management system
+ - ahmed farag
+
+
+ - tasneem nabil ==> quiz creation
+ - sarah ali ==> elearning
+ - salsabil tarek ==> booking
+
+==> social engine
+ - marwa
+ - aya ramdan
+ - salsabil moustafa
+
+
+indvidual
+ - ahmed raslan
+ - sarah moustafa
+ - mahmoud hamdy
+ - moustafa ramdan => store management
+
+
+
