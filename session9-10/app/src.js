@@ -9,10 +9,16 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 app.use(userRoutes)
 
+const upload = require('../app/middleware/upload-file')
 const Post = require('./db/models/post.model')
-app.post('/myTest', async(req,res)=>{
+const auth = require('./middleware/auth')
+app.post('/myTest',auth,upload.single('file'), async(req,res)=>{
     try{
-        const data = new Post(req.body)
+        const data = new Post({
+            ...req.body,
+            userId: req.user._id
+        })
+        if(req.file) data.file = req.file.path
         await data.save()
         res.send(data)
     }

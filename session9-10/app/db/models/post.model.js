@@ -1,5 +1,10 @@
 const mongoose = require('mongoose')
-const postSchema =  mongoose.Schema({
+const postSchema = new mongoose.Schema({
+    userId:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref:"User",
+        required:true
+    },
     postType:{
         type:String,
         required:true,
@@ -8,15 +13,18 @@ const postSchema =  mongoose.Schema({
     },
     txt:{
         type:String,
-        // default:null,
-        required:true,
-        validate(value){
-            // console.log(this.postType)
-            if(value=="a"){
-                throw new Error('must include txt')
-            }
-        }
+        // default:"",
+        required: function(){return this.postType=="txt"}
+    },
+    file:{
+        type:String,
+        required: function(){return this.postType=="img"|| this.postType=="vid"}
     }
+    // ,
+    // vid:{
+    //     type:String,
+    //     required: function(){return this.postType=="vid"}
+    // }    
 })
 
 const Post = mongoose.model("Post", postSchema)
