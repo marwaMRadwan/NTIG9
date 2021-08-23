@@ -1,0 +1,31 @@
+group :
+ - mahmoud azab ==> ecommerce
+ - safia
+ - mohamed 
+ => single vendor 
+ ////////////////////////////////////////////
+
+ - moustafa khedr
+ - walid
+ - ahmed farag
+==> e contract
+---------------------------------------
+ - tasneem nabil 
+ - sarah ali ==> elearning and quizes
+ - salsabil tarek
+ 
+---------------------------------
+==> freelance app
+ - marwa
+ - aya ramdan
+ - salsabil moustafa
+
+---------------------------------
+indvidual
+ - ahmed raslan =>
+ - sarah moustafa
+ - mahmoud hamdy
+ - moustafa ramdan => store management
+
+
+

@@ -28,11 +28,32 @@ app.post('/myTest',auth,upload.single('file'), async(req,res)=>{
 })
 app.get('/myPosts', auth, async(req,res)=>{
     try{
-        let posts = Post.find({userId: req.user._id})
+        let posts = Post.find({userId: req.user._id}).limit(5).skip(10).sort({_id:-1})
         res.send(posts)
     }
     catch(e){
         res.send(e)
     }
 })
+
+
+app.get('/myPosts1', auth, async(req,res)=>{
+    try{
+        let x = req.user
+       await x.populate({
+           path:"userPosts",
+           match:{postType:'txt'},
+           options:{
+               limit: parseInt(req.query.limit),
+               skip: parseInt(req.query.page)* parseInt(req.query.limit),
+               sort:{_id:-1}
+           }
+       }).execPopulate()
+       res.send(x.userPosts)
+    }
+    catch(e){
+        res.send(e)
+    }
+})
+
 module.exports = app

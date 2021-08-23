@@ -73,7 +73,11 @@ const userSchema = new mongoose.Schema({
 
 //schema methods
 //virtual populate
-
+userSchema.virtual('userPosts', {
+    ref:'Post',
+    localField:"_id",
+    foreignField:"userId"
+})
 //handle response
 userSchema.methods.toJSON = function(){
     const user = this.toObject()
