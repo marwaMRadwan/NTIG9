@@ -1,0 +1,13 @@
+                                            Any
+Union                primitive                               Object                  Intersection
+                  number => enum                             class
+                      bigInt                                Interface   
+                      boolean                               function
+                      string                                construtor
+                      symbol                                array => tuple
+                                            
+                                            Void
+                                             |
+                                            null
+                                             |
+                                            undefined

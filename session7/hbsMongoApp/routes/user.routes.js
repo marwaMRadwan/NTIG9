@@ -82,7 +82,7 @@ router.post('/edit/:id', (req,res)=>{
         if(error) res.send('database error')
         response.collection('users').updateOne(
             {_id:new ObjectId(id)},
-            // { $set:data} // {name:1, age:80}
+            // { $set:data} // {name:1, age:80}  //{$set: {amount: newamount}}
     {$inc:{age:1}}
     )
     .then(()=>res.redirect('/showAll'))
