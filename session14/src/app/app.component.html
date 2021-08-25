@@ -1,0 +1,47 @@
+<!-- <section class="container"> -->
+<!--    <h2>Interpolation {{  </h2>
+    <h3>{{ title }} {{sesNum}}</h3>
+    <h2>Property binding</h2>
+    <p [innerText]="title"></p>
+    <button [disabled]="!status">btn</button>
+    {{x+y}}
+    {{show()}}
+    {{test1}}
+    <div [innerHTML]="test1"> </div>
+    <div [className]=" getc()?'x' : 'y' "></div>
+    <div [attr.width]="sesNum"></div> -->
+    <!-- [style.color] -->
+
+    <!-- <button (click)="handleClick()"></button>  -->
+    <!-- <div [className]="status ?'x':'y'">change me</div>
+    <button class="btn btn-primary" (click)="toggleColor()">chng</button> -->
+    <!-- <input class="form-control" [(ngModel)]="data">
+    <div>{{data}}</div>
+    <textarea class="form-control" [(ngModel)]="tData"></textarea>
+    {{tData}}
+</section> -->
+
+
+<section class="container my-5">
+    <button class="btn" (click)="chngStatus()">change</button>
+    <div
+    [ngClass]=" { 'd-none':status, 'row':true } "
+    >
+        <div class="col-4 p-2" 
+        *ngFor="
+        let singleImage of allImages; 
+        let i = index;
+        let o = odd;
+        let e = even;
+        let f = first
+        "
+        >
+            <div class="border border-primary border-3">
+                <h5>{{i}} - {{o}} - {{e}} - {{f}}</h5>
+                <hr>
+                <img [src]="singleImage.url" class="img-fluid">
+                <h4>{{singleImage.title}}</h4>
+            </div>
+        </div>
+    </div>
+</section>
