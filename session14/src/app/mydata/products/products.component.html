@@ -1,5 +1,6 @@
 <h2 class="my-5 text-center text-danger">All Products</h2>
 <section class="container">
+    <input [(ngModel)]="keyword" (input)="filterMyData()">
     <table class='table table-bordered'>
         <thead>
             <th>#</th>
