@@ -1,3 +1,5 @@
+<app-products></app-products>
+
 <!-- <section class="container"> -->
 <!--    <h2>Interpolation {{  </h2>
     <h3>{{ title }} {{sesNum}}</h3>
@@ -22,9 +24,9 @@
 </section> -->
 
 
-<section class="container my-5">
-    <button class="btn" (click)="chngStatus()">change</button>
-    <div
+<!-- <section class="container my-5">
+     <button class="btn" (click)="chngStatus()">change</button> -->
+    <!--<div
     [ngClass]=" { 'd-none':status, 'row':true } "
     >
         <div class="col-4 p-2" 
@@ -43,5 +45,23 @@
                 <h4>{{singleImage.title}}</h4>
             </div>
         </div>
+    </div> -->
+
+    <!-- <input [(ngModel)]="monthNum">
+
+    <div [ngSwitch]="monthNum">
+        <li *ngSwitchCase="1"> jan</li>
+        <li *ngSwitchCase="2"> feb</li>
+        <li *ngSwitchCase="3"> mar</li>
+        <li *ngSwitchCase="4"> apr</li>
+        <li *ngSwitchCase="5"> may</li>
+        <li *ngSwitchCase="6"> jun</li>
+        <li *ngSwitchDefault>not a month</li>
+    </div> -->
+
+    <!-- <div *ngIf="status; else elseDiv">
+        if status is true
     </div>
-</section>
+    <ng-template #elseDiv> if status is false   </ng-template>
+
+</section> -->

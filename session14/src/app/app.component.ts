@@ -108,4 +108,7 @@ export class AppComponent {
     ]
 
   chngStatus(){ this.status=!this.status}
+
+  monthNum :number = 1
+  
 }

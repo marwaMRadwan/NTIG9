@@ -7,13 +7,17 @@ import { AppComponent } from './app.component';
 import { MycompComponent } from './mycomp/mycomp.component';
 import { Mycomp1Component } from './mycomp1/mycomp1.component';
 import { MyCompComponent } from './my-comp/my-comp.component';
+import { ProductsComponent } from './mydata/products/products.component';
+import { SingleproductComponent } from './mydata/singleproduct/singleproduct.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MycompComponent,
     Mycomp1Component,
-    MyCompComponent
+    MyCompComponent,
+    ProductsComponent,
+    SingleproductComponent
   ],
   imports: [
     BrowserModule,

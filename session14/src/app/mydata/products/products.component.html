@@ -1,0 +1,25 @@
+<h2 class="my-5 text-center text-danger">All Products</h2>
+<section class="container">
+    <table class='table table-bordered'>
+        <thead>
+            <th>#</th>
+            <th>id</th>
+            <th>title</th>
+            <th>price</th>
+            <th>description</th>
+            <th>category</th>
+            <th>image</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of data; let i = index">
+                <td>{{ i }}</td>
+                <td>{{ p.id }}</td>
+                <td>{{p.title}}</td>
+                <td>{{p.price}}</td>
+                <td>{{p.description}}</td>
+                <td>{{p.category}}</td>
+                <td><img [src]="p.image" class="img-fluid"></td>
+            </tr>
+        </tbody>
+    </table>
+</section>
