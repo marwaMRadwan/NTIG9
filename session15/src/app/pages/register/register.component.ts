@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
@@ -7,8 +8,8 @@ import { UsersService } from 'src/app/services/users.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
-  constructor(private _user:UsersService) { }
+emailFlag:boolean=false
+  constructor(private _user:UsersService, private _router:Router) { }
 
   ngOnInit(): void {
   }
@@ -17,6 +18,11 @@ export class RegisterComponent implements OnInit {
     console.log(myData.value)
     this._user.registerUser(myData.value).subscribe(data=>{
       console.log(data)
-    })
+      if(data.success=="") this.emailFlag=true
+      else this._router.navigateByUrl('/allProducts')
+    },
+    (e)=>{},
+    ()=>{}
+    )
   }
 }

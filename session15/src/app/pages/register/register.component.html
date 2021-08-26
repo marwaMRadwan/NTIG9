@@ -15,6 +15,9 @@
             <div *ngIf="name.errors?.minlength">name is small</div>
         </div>
         <input name="email" class="form-control my-3" email ngModel>
+        <div *ngIf="emailFlag">
+            email used before
+        </div>
         <input name="password" class="form-control my-3" pattern="^[a-zA-Z]+$" ngModel>
         <input name="phone" class="form-control my-3" ngModel>
         <input name="gender" class="form-control my-3" ngModel>
