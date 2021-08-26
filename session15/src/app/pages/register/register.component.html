@@ -1,0 +1,8 @@
+<section class="my-5 container">
+    {{myForm.value|json}}
+    <form #myForm = "ngForm" (ngSubmit)="handleSubmit(myForm)">
+        <input name="name" ngModel>
+        <input name="age" ngModel>
+        <button>add</button>
+    </form>
+</section>
