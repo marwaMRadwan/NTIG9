@@ -20,7 +20,7 @@ import { Err404Component } from './pages/err404/err404.component';
     NavbarComponent,
     FooterComponent,
     HeaderComponent,
-    Err404Component
+    Err404Component,
   ],
   imports: [
     BrowserModule,
