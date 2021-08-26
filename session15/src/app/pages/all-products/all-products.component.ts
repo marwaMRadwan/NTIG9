@@ -8,7 +8,12 @@ import { UsersService } from 'src/app/services/users.service';
 export class AllProductsComponent implements OnInit {
   allUser:any[] = []
   constructor(private _user:UsersService) { 
-    this.allUser = _user.getAllData()
+
+    _user.getAllData().subscribe( 
+      (data) => {console.log(data); this.allUser = data} ,
+      ( e ) => { console.log('error'); console.log(e); },
+      ( ) => { console.log('then'); }
+    )
   }
 
   ngOnInit(): void {
