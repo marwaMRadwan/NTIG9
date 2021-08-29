@@ -29,8 +29,11 @@ test(){ this.x++}
   // return "this.child.f"
  
 // }
-ngAfterViewInit(){
-  console.log(this.child.f)
+// ngAfterViewInit(){
+//   console.log(this.child.f)
+// }
+// inc(){ this.child.f++}
+chngUserName(){
+  this.child.userName= "omar"
 }
-inc(){ this.child.f++}
 }

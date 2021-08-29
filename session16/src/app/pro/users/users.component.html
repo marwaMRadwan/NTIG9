@@ -1,0 +1,23 @@
+<img src="/assets/loading.gif" *ngIf="!isLoaded">
+
+<table [border]="2" [cellSpacing]="0" [cellPadding]="0" [width]="'100%'">
+<tr>
+    <th [rowSpan]="2">id</th>
+    <th [rowSpan]="2">name</th>
+    <th [rowSpan]="2">username</th>
+    <th [rowSpan]="2">email</th>
+    <th [colSpan]="4">address</th>
+</tr>
+<tr>
+    <th>street</th>
+    <th>city</th>
+</tr>
+<tr *ngFor="let u of allUsers" routerLink="/users/{{u.id}}">
+    <td>{{u.id}}</td>
+    <td>{{u.name}}</td>
+    <td>{{u.username}}</td>
+    <td>{{u.email}}</td>
+    <td>{{u.address.street}}</td>
+    <td>{{u.address.city}}</td>
+</tr>
+</table>

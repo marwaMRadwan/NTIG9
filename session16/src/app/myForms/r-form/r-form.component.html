@@ -1,0 +1,15 @@
+<form [formGroup]="myForm" (ngSubmit)="handleSubmit()">
+    <input placeholder="name" formControlName="name">
+    <div *ngIf="name?.invalid">
+        error
+        {{name?.errors|json}}        
+    </div>
+    <input placeholder="phone" formControlName="phone">
+    <div *ngIf="phone?.invalid">
+        <li *ngIf="phone?.errors?.required">phone is required</li>
+        <li *ngIf="phone?.errors?.minlength">phone must be 11 char</li>
+        <li *ngIf="phone?.errors?.maxlength">phone must be 11 char</li>
+    </div>
+    <input placeholder="address" formControlName="address">
+    <button>add</button>
+</form>
