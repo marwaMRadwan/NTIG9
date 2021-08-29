@@ -11,4 +11,7 @@ export class UsersService {
   getAllData():Observable<any>{
     return this._http.get('https://jsonplaceholder.typicode.com/users')
   }
+  registerUser(userData:any):Observable<any>{
+    return this._http.post('http://medical.mind-techs.com/api/auth/signUp', userData)
+  }
 }
