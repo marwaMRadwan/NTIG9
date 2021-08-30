@@ -1,1 +1,37 @@
-<p>register works!</p>
+<section class="container my-3">
+    <h3 class="text-primary text-center">Register New Account</h3>
+    <form #registerForm = "ngForm" (ngSubmit)="handleRegister()">
+        <div class="row mb-3">
+            <div class="col-md-6 col-12">
+                <label class="form-label">Name</label>
+                <input class="form-control" name="name" [(ngModel)]="registerData.name">    
+            </div>
+            <div class="col-md-6 col-12">
+                <label class="form-label">Email</label>
+                <input class="form-control" name="email" [(ngModel)]="registerData.email">    
+            </div>
+            <div class="col-md-6 col-12">
+                <label class="form-label">password</label>
+                <input class="form-control" name="password" [(ngModel)]="registerData.password">    
+            </div>
+            <div class="col-md-6 col-12">
+                <label class="form-label">Phone</label>
+                <input class="form-control" name="phone" [(ngModel)]="registerData.phone">    
+            </div>
+            <div class="col-12">
+                <label class="form-label">Gender</label>
+
+            </div>
+            <div class="col-md-6 col-12">
+                <select class="form-select" name="gender" [(ngModel)]="registerData.gender">   
+                    <option selected disabled>Choose Gender</option>
+                    <option value="1">Female</option>
+                    <option value="0">Male</option>
+                </select>
+            </div>
+            <div class="col-md-6 col-3 d-flex justify-content-end">
+                <button class="btn btn-primary">Register</button>
+            </div>
+        </div>
+    </form>
+</section>
