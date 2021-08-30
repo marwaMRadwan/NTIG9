@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-register',
@@ -7,21 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
+  formNotValid =""
+  check = false
   registerData :any = {
-
-  }
-  constructor() { }
+    name:"", gender:null, phone:"", email:"", password:""
+   }
+  constructor( private _data:DataService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
-    this.registerData={
-      "name":"marwa radwan",
-      "email":"marwatestq@gmail.com",
-      "password":"23@G9hello",
-      "gender":1,
-      "phone":"01234567892"
-    }
   }
-  handleRegister(){
-    console.log(this.registerData)
+  handleRegister(myForm:NgForm){
+    if(myForm.valid){
+      this.formNotValid = "added successfully"
+      this.toastr.error('added successfully', 'Toastr fun!');
+      this.check=true
+      myForm.resetForm()
+    }
+    else{
+      this.check=false
+      this.formNotValid="check your inputs"
+    }
   }
 }
