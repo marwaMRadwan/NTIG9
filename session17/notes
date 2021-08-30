@@ -1,0 +1,17 @@
+:3000/activate/:id
+localhost:4200/activate/:id
+
+interceptor
+default values forms
+submitted => only in template driven
+
+dirty - touched - submitted - valid - invalid - value
+routing
+
+
+
+register => role =1 ==> redirect ==> login  ==> home page ==> me form disabled  => button => enable => edit
+
+home component ===> profile   or login or register
+
+navbar footer
