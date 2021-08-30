@@ -1,17 +1,10 @@
-:3000/activate/:id
-localhost:4200/activate/:id
+login component => call service
 
-interceptor
-default values forms
-submitted => only in template driven
+inside login set localstorage
 
-dirty - touched - submitted - valid - invalid - value
-routing
+ng g interceptor user
 
+appModule => add user interceptor in provider
 
+user interceptor get token and set inside header
 
-register => role =1 ==> redirect ==> login  ==> home page ==> me form disabled  => button => enable => edit
-
-home component ===> profile   or login or register
-
-navbar footer
