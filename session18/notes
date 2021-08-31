@@ -1,0 +1,18 @@
+tasks app
+    - employee => show his tasks , add note for task, add status to task (processing, 20%, processing 40%, finshed)
+    - manager  => add New Task , assign task to employee, delete task, change employee, change due time task, show all tasks, edit any tany, delete employee, add new employee, stop employee
+    - task 
+    ** users
+    userName => unique , characters only
+    password => 
+    phone number
+    position
+    type==> manager, employee
+    profile image => 
+
+    ** task:
+    type
+    due date
+    employee assigned
+    manager created
+    description file
