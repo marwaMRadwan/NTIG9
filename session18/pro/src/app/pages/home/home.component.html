@@ -1,0 +1,13 @@
+
+<form [formGroup]="loginData" (ngSubmit)="handleLogin()" *ngIf="!_global.isLoggedIn">
+    <input name="email" placeholder="email"  formControlName="email">
+    <input name="password" formControlName="password">
+    <button > login</button>
+</form>
+
+{{userData|json}}
+{{_global.isLoggedIn}}
+
+{{'marwa'|uppercase}}
+
+{{today}}
