@@ -5,8 +5,34 @@ angular material =>done
 childeren ( user, user/all, user/single, ...)=>done
 upload image==> done
 multilang => done
-
 Guards => done
+
+output with @output
 custom directive 
 angular animation 
-output with @output
+
+
+
+roles => admin, urls[2,] , manager, emp
+admin , urls{
+    1 true
+    2 false
+    3 true
+    4 true
+}
+urls => /user/add 1 /user/edit 2
+{name:Manfactor view, link:'...'},
+{}
+admin
+www.marwa.com/profile/edit => me, editdata(manager) =<> error => redirect
+
+
+
+
+post('/x, auth1,auth2,controller)
+
+auth1 => logged inside
+auth2 => role can use url => error
+
+,
+manger [1,2,8,9]
