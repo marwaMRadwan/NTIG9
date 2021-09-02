@@ -1,12 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import { DataService } from './data.service';
-
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+  // ...
+} from '@angular/animations';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  animations: [
+    // animation triggers go here
+  ]
 })
+
 export class AppComponent {
   title = 'session20';
 result:any
@@ -16,6 +27,7 @@ result:any
     //   translate.use(newLang);
       
   }
+  
 ngOnInit(){
 //   this._data.getx().subscribe(data=>{
 // this.result = data
