@@ -21,6 +21,7 @@ today:any
     this.today = this.dP.transform(new Date(), 'short')
   }
   handleLogin(){
+    
      this._global.login(this.loginData.value).subscribe((data)=>{
       if(!data) console.log('fe error')
       this.userData= data

@@ -16,3 +16,17 @@ tasks app
     employee assigned
     manager created
     description file
+
+
+
+home isAdmin = false
+
+
+admin => isAdmin=true
+
+
+navbar
+
+x => user   *ngIf="!isAdmin"
+
+y => admin *ngIf="isAdmin"

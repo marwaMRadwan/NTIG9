@@ -13,6 +13,6 @@ export class GlobalService {
     return this._http.post('http://medical.mind-techs.com/api/auth/login', data)
   }
   upload(data:any):Observable<any>{
-    return this._http.post('http://medical.mind-techs.com/api/UploadImage', data)
+    return this._http.post('http://medical.mind-techs.com/api/auth/EditAccountImages', data)
   }
 }

@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 })
 export class DataService {
 public langId = localStorage.getItem('currentLang')|| 'en'
+public isLogged =false
   constructor(private _http: HttpClient) { }
 
   getLanguage(){

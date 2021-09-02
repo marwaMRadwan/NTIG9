@@ -16,7 +16,7 @@ export class AppComponent {
   }
   uploadMyFile(){
   const myData= new FormData()
-  myData.append('files', this.file.name)
+  myData.append('image', this.file,this.file.name)
   this._global.upload(myData).subscribe(result=>console.log(result))
   }
 }
